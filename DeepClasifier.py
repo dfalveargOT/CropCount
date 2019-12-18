@@ -202,13 +202,13 @@ class DeepClasifier:
         return flag
     
     def load_model(self):
-        try:
-            self.model = tf.keras.models.load_model(self.path_model+self.model_h5)
-            self.model_flag = True
-            #self.model.summary()
-            print(" &&& Model Loaded")
-        except:
-            print("Problems importing the model ... %%")
+        #try:
+        self.model = tf.keras.models.load_model(os.path.join(self.path_model,self.model_h5))
+        self.model_flag = True
+        self.model.summary()
+        print(" &&& Model Loaded")
+        #except:
+            #print("Problems importing the model ... %%")
         
     def create_model(self):
         # Create the base model from the pre-trained model MobileNet V2
