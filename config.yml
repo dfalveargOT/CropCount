@@ -13,8 +13,8 @@ deepclasifier:
     path_model: /content/gdriveM/My Drive/DataRock/Piña/CropApp
     model: MC13DenseNet.h5
     score_min_Acce: 0.899
-    score_min_Fail: 0.2
-    score_min_Fail2: 0.2
+    score_min_Fail: 0.1
+    score_min_Fail2: 0.1
     score_min_Acce_R: 0.80
     score_min_Fail_R: 1.1
     iou_object: 0.5

@@ -240,7 +240,7 @@ class DeepClasifier:
         nextNeighbor = 1 - currentNeighbor
         for predict_idx in range(len(predictions)):
             # Traemos el valor de la posicion 
-            presentValue = predictions[predict_idx] * currentNeighbor
+            presentValue = predictions[predict_idx] #* currentNeighbor
             futurePredictions = np.zeros([1,3]) 
             pastPredictions = np.zeros([1,3]) 
             vals = 1
@@ -255,8 +255,8 @@ class DeepClasifier:
                     pastPredictions = np.sum((pastPredictions, past), axis=0)
                     vals += 1
             # Computamos el promedio
-            neighborInference_sum = np.sum((futurePredictions, pastPredictions), axis=0) * nextNeighbor
-            computedPrediction = np.sum((presentValue, neighborInference_sum), axis=0)
+            neighborInference_sum = np.sum((futurePredictions, pastPredictions), axis=0) #* nextNeighbor
+            computedPrediction = np.sum((presentValue, neighborInference_sum), axis=0) / vals
             inferenceArray = np.vstack((inferenceArray, computedPrediction))
         return inferenceArray
             
