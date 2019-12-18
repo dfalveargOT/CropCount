@@ -21,7 +21,7 @@ import sys
 #from PyQt5 import QtWidgets
 
 class subsetcut:
-    def __init__(self, image, fit=False, path_conf="./"):
+    def __init__(self, image, path_conf, fit=False):
         ## Get the screen resolution
         """
         app = QtWidgets.QApplication(sys.argv)
@@ -44,7 +44,6 @@ class subsetcut:
         ## Control Variables
         self.activate = False
         self.drawing = False
-        print(path_conf)
         self.config_file(path_conf)
         self.polygon_done = False
         self.activate_points_del = False # Control Variable activate the erase point option
