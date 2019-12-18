@@ -83,7 +83,7 @@ class GuiCut:
 #                    cv2.imshow("image", self.image) 
 
     def config_file(self, path):
-        with open("config.yml", 'r') as ymlfile:
+        with open(os.path.join(path, "config.yml"), 'r') as ymlfile:
             config_file = yaml.load(ymlfile, Loader=yaml.FullLoader)
         guicut_conf = config_file['guicut']
         self.line_thickness_def = guicut_conf["line_thickness_def"]

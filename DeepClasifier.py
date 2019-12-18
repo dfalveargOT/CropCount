@@ -239,7 +239,7 @@ class DeepClasifier:
             print("No model created ... %%")
         
     def config_file(self, path="./"):
-        with open("config.yml", 'r') as ymlfile:
+        with open(os.path.join(path, "config.yml"), 'r') as ymlfile:
             config_file = yaml.load(ymlfile, Loader=yaml.FullLoader)
         deep_conf = config_file['deepclasifier']
         self.image_size = deep_conf["image_size"]

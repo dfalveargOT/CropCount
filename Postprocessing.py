@@ -191,7 +191,7 @@ class Postprocessing:
         Input:
             path - location of the configuration yaml file
         """
-        with open(path + "config.yml", 'r') as ymlfile:
+        with open(os.path.join(path, "config.yml"), 'r') as ymlfile:
             config_file = yaml.load(ymlfile, Loader=yaml.FullLoader)
         postprocessing = config_file['Postprocessing']
         self.radio_mask = postprocessing["radio_mask"]

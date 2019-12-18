@@ -16,6 +16,7 @@ Created on Sat Jul 13 17:14:59 2019
 import cv2 
 import numpy as np
 import yaml
+import os
 import sys
 #from PyQt5 import QtWidgets
 
@@ -224,7 +225,7 @@ class subsetcut:
                 
 
     def config_file(self, path):
-        with open("config.yml", 'r') as ymlfile:
+        with open(os.path.join(path, "config.yml"), 'r') as ymlfile:
             config_file = yaml.load(ymlfile, Loader=yaml.FullLoader)
         guicut_conf = config_file['guicut'] # guicut
         self.line_thickness_def = guicut_conf["line_thickness_def"]
