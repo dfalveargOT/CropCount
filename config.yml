@@ -1,0 +1,27 @@
+main:
+    path_images: ./ToProcess/
+    path_results: ./Results/
+guicut:
+    line_thickness_def: 3
+    multiplier_erase: 4
+    line_thickness_draw: 1
+    max_blocks: 2
+deepclasifier:
+    image_size: 50
+    path_weights: ./Model/
+    weights: weights_2C.h5
+    path_model: ./Model/
+    model: 3-ModelM3DenseNet169.h5
+    score_min_Acce: 0.80
+    score_min_Fail: 0.50
+    score_min_Acce_R: 0.80
+    score_min_Fail_R: 1.1
+    iou_object: 0.5
+    deep_classes_num: 2
+Postprocessing:
+    radio_mask: 6
+    radio_image_fill: 4
+    radio_image_ext: 10
+    iou_threshold: 0.12
+    
+

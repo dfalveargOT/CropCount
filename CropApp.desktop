@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=CropApp
+Comment=DataRockSAS
+Terminal=False
+StartupNotify=true
+Type=Application
+Categories=Utility;Application;
+Exec=gnome-terminal --execute bash -c "/home/datarock/Documentos/CropCount/Application.sh";/bin/bash
+Icon=/home/datarock/Documentos/CropCount/Icon/DataRock.png
