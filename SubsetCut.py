@@ -44,6 +44,7 @@ class subsetcut:
         ## Control Variables
         self.activate = False
         self.drawing = False
+        print(path_conf)
         self.config_file(path_conf)
         self.polygon_done = False
         self.activate_points_del = False # Control Variable activate the erase point option
