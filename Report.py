@@ -46,7 +46,7 @@ class Report:
             return -1, -1
     
     def config_file(self, path="./"):
-        with open("config.yml", 'r') as ymlfile:
+        with open(os.path.join(path,"config.yml"), 'r') as ymlfile:
             config_file = yaml.load(ymlfile, Loader=yaml.FullLoader)
         main_conf = config_file['main']
         self.path_images = main_conf["path_images"]
