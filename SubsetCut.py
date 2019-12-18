@@ -17,17 +17,20 @@ import cv2
 import numpy as np
 import yaml
 import sys
-from PyQt5 import QtWidgets
+#from PyQt5 import QtWidgets
 
 class subsetcut:
     def __init__(self, image, fit=False, path_conf="./"):
         ## Get the screen resolution
+        """
         app = QtWidgets.QApplication(sys.argv)
         screen = app.primaryScreen()
         window_available = screen.availableGeometry()
         width = window_available.width()
         height = window_available.height()
         min_dimension = height
+        """
+        min_dimension = 1000
         self.ratio = 1
         ## Image definition to process
         if fit:
