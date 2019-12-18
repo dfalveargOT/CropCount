@@ -233,7 +233,33 @@ class DeepClasifier:
                                metrics=['accuracy'])
         else:
             print("No model created ... %%")
-        
+
+    def neighborInference(self, predictions, neighbors, classes, inferenceVal=0.8):
+        inferenceArray = np.zeros([1,3]) 
+        currentNeighbor = inferenceVal
+        nextNeighbor = 1 - currentNeighbor
+        for predict_idx in range(len(predictions)):
+            # Traemos el valor de la posicion 
+            presentValue = predictions[predict_idx] * currentNeighbor
+            futurePredictions = np.zeros([1,3]) 
+            pastPredictions = np.zeros([1,3]) 
+            vals = 1
+            # Extraemos los valores de los vecinos
+            for neighbor in range(1, neighbors+1):
+                if (neighbor + predict_idx) <= (len(predictions)-1):
+                    future = predictions[predict_idx + neighbor]
+                    futurePredictions = np.sum((futurePredictions, future), axis=0)
+                    vals += 1
+                if (neighbor - predict_idx) >= 0:
+                    past = predictions[predict_idx - neighbor]
+                    pastPredictions = np.sum((pastPredictions, past), axis=0)
+                    vals += 1
+            # Computamos el promedio
+            neighborInference_sum = np.sum((futurePredictions, pastPredictions), axis=0) * nextNeighbor
+            computedPrediction = np.sum((presentValue, neighborInference_sum), axis=0)
+            inferenceArray = np.vstack((inferenceArray, computedPrediction))
+        return inferenceArray
+            
     def config_file(self, path="./"):
         with open(os.path.join(path, "config.yml"), 'r') as ymlfile:
             config_file = yaml.load(ymlfile, Loader=yaml.FullLoader)
