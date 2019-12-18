@@ -4,7 +4,7 @@
 Created on Sat Jul 13 17:14:59 2019
 @author: DavidFelipe
 """
-
+import os
 import cv2 
 import numpy as np
 import slidingwindow as sw
