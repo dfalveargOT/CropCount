@@ -7,7 +7,7 @@ guicut:
     line_thickness_draw: 1
     max_blocks: 2
 deepclasifier:
-    image_size: 50
+    image_size: 40
     path_weights: ./Model/
     weights: weights_2C.h5
     path_model: /content/gdriveM/My Drive/DataRock/Piña/CropApp
