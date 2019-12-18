@@ -21,7 +21,7 @@ import sys
 #from PyQt5 import QtWidgets
 
 class subsetcut:
-    def __init__(self, image, path_conf, fit=False):
+    def __init__(self, image, fit=False, path_conf="./"):
         ## Get the screen resolution
         """
         app = QtWidgets.QApplication(sys.argv)
