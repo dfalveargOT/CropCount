@@ -7,6 +7,7 @@ Created on Wed Sep  4 10:09:35 2019
 
 """
 try:
+    import os
     import numpy as np
     import cv2
     import yaml
