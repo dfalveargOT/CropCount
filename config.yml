@@ -14,7 +14,7 @@ deepclasifier:
     model: MC13DenseNet.h5
     score_min_Acce: 0.899
     score_min_Fail: 0.45
-    score_min_Fail: 0.5
+    score_min_Fail2: 0.5
     score_min_Acce_R: 0.80
     score_min_Fail_R: 1.1
     iou_object: 0.5
