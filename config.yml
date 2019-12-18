@@ -1,6 +1,6 @@
 main:
-    path_images: ./ToProcess/
-    path_results: ./Results/
+    path_images: /content/gdriveM/My Drive/DataRock/Piña/CropApp/ToProcess/
+    path_results: /content/gdriveM/My Drive/DataRock/Piña/CropApp/Results/
 guicut:
     line_thickness_def: 3
     multiplier_erase: 4
@@ -10,7 +10,7 @@ deepclasifier:
     image_size: 50
     path_weights: ./Model/
     weights: weights_2C.h5
-    path_model: ./Model/
+    path_model: /content/gdriveM/My Drive/DataRock/Piña/CropApp
     model: 3-ModelM3DenseNet169.h5
     score_min_Acce: 0.80
     score_min_Fail: 0.50
