@@ -65,13 +65,8 @@ class DeepClasifier:
         
         Output :
             flag - saved the position
-        """
-        if self.deep_classes_num == 3:
-            fail_parameter = score[1] + score[2]
-        else :
-            fail_parameter = score[1]
-            
-        if score[0] > self.score_min_Acce and fail_parameter < self.score_min_Fail:
+        """ 
+        if score[0] > self.score_min_Acce and score[1] < self.score_min_Fail and score[2] < self.score_min_Fail2:
             line = np.array([point[0], point[1], box[0], box[1], score[0]])
             self.vector_boxes = np.vstack((self.vector_boxes, line)) 
        
@@ -250,6 +245,7 @@ class DeepClasifier:
         self.model_h5 = deep_conf["model"]
         self.score_min_Acce = deep_conf["score_min_Acce"]
         self.score_min_Fail = deep_conf["score_min_Fail"]
+        self.score_min_Fail2 = deep_conf["score_min_Fail2"]
         self.score_min_Acce_R = deep_conf["score_min_Acce_R"]
         self.score_min_Fail_R = deep_conf["score_min_Fail_R"]
         self.iou_threshold = deep_conf["iou_object"]
