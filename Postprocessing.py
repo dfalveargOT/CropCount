@@ -205,8 +205,7 @@ class Postprocessing:
         date = datetime.datetime.now()
         timestamp = str(date.day)+str(date.hour)+str(date.minute)
         for idx, box in enumerate(boxes):
-            score_box = scores[idx]
-            if score_box[0] >= threshold:
+            if scores[idx] >= threshold:
                 image_substracted = image[box[0]:box[2], box[1]:box[3], :]
                 name = "D" + str(idx) + "_" + name + timestamp + ".jpg"
                 path = os.path.join(save_path, name)
