@@ -40,6 +40,7 @@ class Postprocessing:
             print("   &&& Postprocessing change results format")
             bar = progressbar.ProgressBar(widgets=self.widgets, maxval=len(vector_boxes)-1)
             bar.start()
+            ## Pass (x,y,w,h) to (x1,y1,x2,y2)
             for item, box in enumerate(vector_boxes):
                 xmin = box[1]
                 ymin = box[0]
@@ -51,7 +52,7 @@ class Postprocessing:
             bar.update(len(vector_boxes)-1)
             score = boxes_format[:,4]
             boxes = (boxes_format[:,:4]).astype(np.int)
-            self.bboxes_after_nms = self.NMS_process(boxes,score, self.iou_threshold)
+            self.bboxes_after_nms, self.scores_nms = self.NMS_process(boxes,score, self.iou_threshold)
             #self.image_drawed = self.Draw_results(box_image, self.bboxes_after_nms)
             #self.Count_points(point_image, self.bboxes_after_nms)
         else:
@@ -182,7 +183,7 @@ class Postprocessing:
             counter += 1
             bar.update(counter)
         #Return filtered bboxes
-        return bboxes[filtered].astype('int')
+        return bboxes[filtered].astype('int'), psocres[filtered] #186
     
     def config_file(self, path="./"):
         """
