@@ -208,8 +208,8 @@ class Postprocessing:
         for idx, box in enumerate(boxes):
             if scores[idx] >= threshold:
                 image_substracted = image[box[1]:box[3], box[0]:box[2], :]
-                name = "D" + str(idx) + "_" + name + timestamp + ".jpg"
-                path = os.path.join(save_path, name)
+                name_image = "D" + str(idx) + "_" + name + timestamp + ".jpg"
+                path = os.path.join(save_path, name_image)
                 try:
                     cv2.imwrite(path, image_substracted)
                     counter+=1
