@@ -204,6 +204,7 @@ class Postprocessing:
         """
         date = datetime.datetime.now()
         timestamp = str(date.day)+str(date.hour)+str(date.minute)
+        counter = 0
         for idx, box in enumerate(boxes):
             if scores[idx] >= threshold:
                 image_substracted = image[box[1]:box[3], box[0]:box[2], :]
@@ -211,9 +212,12 @@ class Postprocessing:
                 path = os.path.join(save_path, name)
                 try:
                     cv2.imwrite(path, image_substracted)
+                    counter+=1
                 except :
                     image_substracted.shape
                     print("Error saving : " + str(image_substracted.shape))
+        print(path)
+        print("Saved images " + str(counter))
 
 
     
