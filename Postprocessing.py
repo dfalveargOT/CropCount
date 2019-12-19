@@ -211,8 +211,9 @@ class Postprocessing:
                 path = os.path.join(save_path, name)
                 try:
                     cv2.imwrite(path, image_substracted)
-                except e:
-                    print(e)
+                except :
+                    image_substracted.shape
+                    print("Error saving : " + str(image_substracted.shape))
 
 
     
