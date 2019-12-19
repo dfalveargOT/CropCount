@@ -12,6 +12,7 @@ try:
     import cv2
     import yaml
     import progressbar
+    import datetime
 except:
     print(" PLEASE REVIEW THE MODULES THAT NEEDS THE SOFTWARE - AN ERROR WAS OCCURRED")
 
@@ -184,6 +185,34 @@ class Postprocessing:
             bar.update(counter)
         #Return filtered bboxes
         return bboxes[filtered].astype('int'), psocres[filtered] #186
+
+    def extract_data(self, image, boxes, scores, threshold, name, save_path):
+        """
+        extract_data - Function to extract data from the working process
+
+        Input :
+            - image : source image 
+            - boxes : numpy array with shape [m,x1,y1,x2,y2]
+            - scores : Predicted scores for each box
+            - threshold : threshold filter float
+            - path : folder to save the data
+
+        Output : 
+            - Save data in folder given
+
+        ALWAYS THE FIRST CLASS IS THE MAIN OBJECT TO DETECT
+        """
+        date = datetime.datetime.now()
+        timestamp = str(date.day)+str(date.hour)+str(date.minute)
+        for idx, box in enumerate(boxes):
+            score_box = scores[idx]
+            if score_box[0] >= threshold:
+                image_substracted = image[box[0]:box[2], box[1]:box[3], :]
+                name = "D" + str(idx) + "_" + name + timestamp + ".jpg"
+                path = os.path.join(save_path, name)
+                cv2.imwrite(path, image_substracted)
+
+
     
     def config_file(self, path="./"):
         """
