@@ -209,7 +209,10 @@ class Postprocessing:
                 image_substracted = image[box[0]:box[2], box[1]:box[3], :]
                 name = "D" + str(idx) + "_" + name + timestamp + ".jpg"
                 path = os.path.join(save_path, name)
-                cv2.imwrite(path, image_substracted)
+                try:
+                    cv2.imwrite(path, image_substracted)
+                except e:
+                    print(e)
 
 
     
