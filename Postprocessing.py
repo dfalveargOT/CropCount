@@ -216,7 +216,6 @@ class Postprocessing:
                 except :
                     image_substracted.shape
                     print("Error saving : " + str(image_substracted.shape))
-        print(path)
         print("Saved images " + str(counter))
 
 
