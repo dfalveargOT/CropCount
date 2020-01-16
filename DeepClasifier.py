@@ -65,10 +65,15 @@ class DeepClasifier:
         
         Output :
             flag - saved the position
-        """ 
-        if score[0] > self.score_min_Acce and score[1] < self.score_min_Fail and score[2] < self.score_min_Fail2:
-            line = np.array([point[0], point[1], box[0], box[1], score[0]])
-            self.vector_boxes = np.vstack((self.vector_boxes, line)) 
+        """
+        if len(score)>2:
+            if score[0] > self.score_min_Acce and score[1] < self.score_min_Fail and score[2] < self.score_min_Fail2:
+                line = np.array([point[0], point[1], box[0], box[1], score[0]])
+                self.vector_boxes = np.vstack((self.vector_boxes, line))
+        else:
+            if score[0] > self.score_min_Acce and score[1] < self.score_min_Fail:
+                line = np.array([point[0], point[1], box[0], box[1], score[0]])
+                self.vector_boxes = np.vstack((self.vector_boxes, line))
        
     def extract_part(self, image, point):
         
